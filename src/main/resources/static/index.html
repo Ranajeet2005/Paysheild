@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paysheild Payment Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js" defer></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>🛡 Paysheild</h2>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#create">Create Payment</a>
+        <a href="#lookup">Find Payment</a>
+        <p>Developer Sandbox</p>
+    </aside>
+
+    <main>
+        <header>
+            <p>PAYMENT INFRASTRUCTURE</p>
+            <h1>Payment Dashboard</h1>
+            <span>DEMO ENVIRONMENT</span>
+        </header>
+
+        <section class="hero" id="dashboard">
+            <p>PAYMENTS MADE SIMPLE</p>
+            <h2>Secure payments.<br>Clear visibility.</h2>
+            <p>Manage and inspect payment API requests.</p>
+            <a href="#create" class="button">Create Payment →</a>
+        </section>
+
+        <section class="cards">
+            <article><p>Backend</p><h3>Spring Boot</h3></article>
+            <article><p>Database</p><h3>PostgreSQL</h3></article>
+            <article><p>Mode</p><h3>Sandbox</h3></article>
+        </section>
+
+        <section class="grid">
+            <article class="panel" id="create">
+                <h2>Create Payment</h2>
+                <form id="payment-form">
+                    <label for="amount">Amount</label>
+                    <input id="amount" type="number" min="0.01"
+                           step="0.01" required placeholder="Enter amount">
+
+                    <label for="currency">Currency</label>
+                    <select id="currency">
+                        <option value="INR">INR</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+
+                    <label for="idempotency-key">Idempotency Key</label>
+                    <div class="key-row">
+                        <input id="idempotency-key" required>
+                        <button type="button" id="new-key">Generate</button>
+                    </div>
+
+                    <button class="submit" id="submit-button" type="submit">
+                        Submit Payment
+                    </button>
+                </form>
+                <p class="note">Demo only. No real money is transferred.</p>
+            </article>
+
+            <article class="panel">
+                <h2>API Response</h2>
+                <p id="response-message">Ready to connect.</p>
+                <pre id="response-json">Waiting for request...</pre>
+            </article>
+        </section>
+
+        <section class="panel lookup" id="lookup">
+            <h2>Find Payment</h2>
+            <form id="lookup-form">
+                <label for="payment-id">Payment ID</label>
+                <input id="payment-id" required placeholder="Enter payment ID">
+                <button class="submit" type="submit">Fetch Payment</button>
+            </form>
+            <pre id="lookup-result">No lookup performed.</pre>
+        </section>
+
+        <footer>Paysheild | Payment API Developer Console</footer>
+    </main>
+</body>
+</html>
